@@ -15,12 +15,12 @@ Add a user:
   ..password
   ..full name etc.
 
-If appropriate add the user to the sudo group
+If appropriate add the user to the sudo group:
   adduser john sudo
-  
+
+Allow use of FTDI type connections etc:  
   adduser john dialout
   
-Allow use of FTDI type connections etc.
 
 Change password to secure the default account
   passwd
@@ -29,7 +29,7 @@ Change password to secure the default account
   ..asrequired
   exit
   
-Login with the appropriate user name then.
+Login with the appropriate user name and then:
 
   sudo apt-get install build-essential gcc-arm-none-eabi
   sudo apt-get install git
@@ -93,3 +93,23 @@ entering terminal mode, press <ESC> to quit:
  > 3
  > 4
  > 5
+
+Edit your .bashrc file to shorten the system prompt by changing the 'w' below:
+----------------------------------
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+----------------------------------
+
+to: 'W'
+
+----------------------------------
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W\$ '
+fi
+----------------------------------
+
