@@ -1,10 +1,11 @@
 https://wiki.ubuntu.com/ARM/RaspberryPi#Download
 
-Transfer .img file as usual.
+Transfer .img file as usual to micro SD card.
 
 Initial login must be via keyboard & HDMI connected display.
 
 ssh is not installed by default.
+  sudo apt-get install ssh
 
 Once installed remote login is fine using Putty etc.
 Default login is ubuntu with password ubuntu
@@ -34,6 +35,10 @@ Login with the appropriate user name and then:
   sudo apt-get install build-essential gcc-arm-none-eabi
   sudo apt-get install git
   sudo apt-get install curl
+  
+Set git defaults:
+  git config --global push.default current
+  git config --global user.name "Full name"
 
 Install Go:  
   sudo -s
