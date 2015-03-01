@@ -4,7 +4,14 @@ Transfer .img file as usual to micro SD card.
 
 Initial login must be via keyboard & HDMI connected display.
 
-ssh is not installed by default.
+http://scruss.com/blog/2013/06/07/well-that-was-unexpected-the-raspberry-pis-hardware-random-number-generator/
+sudo modprobe bcm2708-rng
+sudo apt-get install rng-tools
+
+cat /proc/sys/kernel/random/entropy_avail
+sudo cat /dev/hwrng | rngtest -c 1000
+
+ssh is not installed/enabled by default.
   sudo apt-get install ssh
 
 Once installed remote login is fine using Putty etc.
@@ -39,6 +46,7 @@ Login with the appropriate user name and then:
 Set git defaults:
   git config --global push.default current
   git config --global user.name "Full name"
+  git config --global user.email "user@domain"
 
 Install Go:  
   sudo -s
