@@ -1,8 +1,21 @@
 https://wiki.ubuntu.com/ARM/RaspberryPi#Download
 
+Kernel Headers:
+  apt-get install linux-headers-$(uname -r)
+
 Transfer .img file as usual to micro SD card.
 
 Initial login must be via keyboard & HDMI connected display.
+You should have a (resized) SD card at least 4GB, because by default it will want to create a ~2GB swapfile.
+
+Disable swap file:
+  sudo chmod -x /etc/init.d/dphys-swapfile
+  sudo swapoff -a
+  sudo rm /var/swap
+
+This is a minimal ubuntu-standard image. If you want a full desktop, go ahead and do so:
+
+  sudo apt-get install xubuntu-desktop
 
 http://scruss.com/blog/2013/06/07/well-that-was-unexpected-the-raspberry-pis-hardware-random-number-generator/
 sudo modprobe bcm2708-rng
@@ -126,3 +139,7 @@ else
 fi
 ----------------------------------
 
+                               
+Links:
+http://www.finnie.org/2015/02/14/ubuntu-14-04-trusty-tahr-on-the-raspberry-pi-2/#comment-670818
+http://sjoerd.luon.net/posts/2015/02/debian-jessie-on-rpi2/
