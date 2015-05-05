@@ -3,6 +3,8 @@ https://wiki.ubuntu.com/ARM/RaspberryPi#Download
 Kernel Headers:
   apt-get install linux-headers-$(uname -r)
 
+http://raspberrypi.stackexchange.com/questions/8851/setting-up-wifi-and-ethernet
+  
 Transfer .img file as usual to micro SD card.
 
 Initial login must be via keyboard & HDMI connected display.
